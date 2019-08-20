@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    action_params = params.permit(:action)
+    redirect_to action_params.merge(action: :show, id: 1)
   end
 
   # GET /posts/1
